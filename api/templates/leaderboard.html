@@ -1,0 +1,46 @@
+{% extends "header.html" %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="tablediv">
+        <h1 style="text-align:center;">PLAYER STATS</h1>
+            <table id="player_leaderboard">
+                <thead>
+                    <tr align="center" class="top_table horizontalLine">
+                        <th>NAME</th>
+                        <th>KILLS</th>
+                        <th>DEATHS</th>
+                        <th>AVERAGE DISTANCE</th>
+                        <th>K/D</th>
+                        <th>Last Online</th>
+                    </tr>
+                <thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+$.ajax({
+  type: 'GET',
+  url: '/api/server_stats/player_leaderboard/',
+  dataType: 'json',
+  success: function(data) {
+    var player_leaderboard_content = '';
+    $.each(data, function(index, item){
+        player_leaderboard_content += '<tr><td><a href="../' + item.UID + '">' + item.NAME + '</a></td>';
+        player_leaderboard_content += '<td>' + item.KILLS + '</td>';
+        player_leaderboard_content += '<td>' + item.DEATHS + '</td>';
+        player_leaderboard_content += '<td>' + item.AVERAGE_DISTANCE + '</td>';
+        player_leaderboard_content += '<td>' + item.KD + '</td>';
+        player_leaderboard_content += '<td>' + item.LAST_ONLINE + '</td></tr>';
+    });
+    $(player_leaderboard_content).appendTo("#player_leaderboard");
+  }
+});
+</script>
+
+{% endblock %}

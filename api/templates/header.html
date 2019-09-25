@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="{{ url_for('static', filename='favicon.ico') }}"  type="favicon.ico" sizes="16x16" rel="icon">
+		<!-- Bootstrap CSS -->
+		<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='css/w3.css') }}" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+		<!-- Calling the JavaScript file -->
+		<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/slideShow.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	</head>
+	<body>
+		<!-- this is the start of navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark nav-bg-dark">
+			<!-- this is the menu button for small screen devices -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuID" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="container" style="margin:0;max-width: 100%;">
+				<div class="row" style="width:100%;">
+					<div class="col-md-3">
+						<a href="https://www.spartangaming.co.uk/">
+							<img class="navbar-logo" src="{{ url_for('static', filename='pictures/logosmall.png') }}" alt="Logo">
+						</a>
+					</div>
+
+					<div class="col-md-6">
+						<div class="collapse navbar-collapse" id="menuID">
+							<ul class="navbar-nav mx-auto">
+								<li class="nav-item">
+									<a class="nav-link" href="/">SERVER STATS</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">|</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/leaderboard/">PLAYER STATS</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">|</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PLAYER OF THE MONTH</a>
+									<div class="dropdown-menu" aria-labelledby="dropdown01">
+										<a class="dropdown-item" href="/JANUARY/76561197994820404/">JANUARY</a>
+										<a class="dropdown-item" href="/FEBRUARY/76561198000821607/">FEBRUARY</a>
+										<a class="dropdown-item" href="/MARCH/76561197985925486/">MARCH</a>
+										<a class="dropdown-item" href="/APRIL/76561197994820404/">APRIL</a>
+										<a class="dropdown-item" href="/MAY/76561198250134720/">MAY</a>
+										<a class="dropdown-item" href="/JUNE/76561198118729714/">JUNE</a>
+										<a class="dropdown-item" href="/JULY/76561198075688363/">JULY</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div id="div_button">
+							<form action="index.php" method="post">
+								<select name="server"  id="server" class="form-control" onchange="this.form.submit()">
+								<option value="">CHANGE SERVER</option>
+								<option value="CHERNARUS ISLES">CHERNARUS ISLES</option>
+								<option value="ALTIS">ALTIS</option>
+								</select>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- This is the start of gallery -->
+		<div class="slider" id="main-slider">
+			<div class="slider-wrapper">
+				<img src="{{ url_for('static', filename='pictures/chernarus/picture2.jpg') }}" class="slide"/>
+				<img src="{{ url_for('static', filename='pictures/chernarus/picture1.jpg') }}" class="slide"/>
+				<img src="{{ url_for('static', filename='pictures/chernarus/picture3.jpg') }}" class="slide"/>
+				<img src="{{ url_for('static', filename='pictures/chernarus/picture6.jpg') }}" class="slide"/>
+				<img src="{{ url_for('static', filename='pictures/chernarus/picture5.jpg') }}" class="slide"/>
+				<img src="{{ url_for('static', filename='pictures/chernarus/picture7.jpg') }}" class="slide"/>
+				<img src="{{ url_for('static', filename='pictures/chernarus/picture8.jpg') }}" class="slide"/>
+			</div>
+		</div>
+		<!-- This is the end of gallery -->
+
+		{% block body %}{% endblock %}
+
+	</body>
+</html>

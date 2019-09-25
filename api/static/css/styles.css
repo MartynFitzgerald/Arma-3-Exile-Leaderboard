@@ -1,0 +1,185 @@
+body{background-color:#0C0C0C;}
+h1 {font-size:50px; color:#fff;font-family:Consolas, monaco, monospace;}
+h2 {font-size:40px; color:#fff;}
+
+.container {
+    max-width: 95%;
+    padding: 0px;
+}
+.col-xl-6, .col-xl-4 {
+    padding-top: 20px;
+}
+
+#main-content {margin-left: 60px; width: 780px; float: left;}
+.slider {width: 100%; border-bottom: solid #9a2828;}
+.slider-wrapper {width: 100%;height: 350px;position: relative;}
+.slide {float: left;position: absolute;width: 100%;height: 100%;opacity: 0;transition: opacity 3s linear;}
+.slider-wrapper > .slide:first-child {opacity: 1;}
+
+/*--------------------
+Table Settings
+--------------------*/
+table {
+      font-family:Consolas, monaco, monospace;
+	  width: 100%;
+	  color:#fff;
+	  background-color:#121212;
+}
+thead{
+    border-collapse:separate;
+    border-bottom:solid white 1px;
+    padding: 8px;
+    text-align: center;
+	  font-weight: bold;
+}
+th{
+    min-width: 300px;
+    padding: 8px;
+    text-align: center;
+	font-weight: bold;
+}
+td{
+    padding: 8px;
+    text-align: center;
+    height: 38px;
+}
+tr:nth-child(even) {
+    background-color: #171717;
+}
+tr:hover {
+    background-color:#0A0A0A;
+  transition: ease-out 0.2s;
+}
+
+.tablediv {margin: 1cm auto auto auto;}
+.tablediv2 {margin: 1cm auto auto auto; width: 1000px;}
+
+/*--------------------
+Navbar
+--------------------*/
+
+.menudivleft {width:20%;}
+.menudiv {width: 60%;}
+.menudivright {width:20%;}
+
+.navbar-logo { height: 40px;}
+.navbar{border-bottom: solid #9a2828; z-index: 98; position:sticky;position: -webkit-sticky; /* Safari */top: 0;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;padding:.5rem 1rem;}
+.nav-bg-dark{font-size: 17px;background-color:#232527; font-family: Consolas, monaco, monospace;font-weight: bold;}
+.navbar-nav{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding-left:0;margin-bottom:0;list-style:none}
+.navbar-collapse{-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-positive:1;flex-grow:1;-ms-flex-align:center;align-items:center}
+.navbar-dark .navbar-nav .nav-link{color:#CCCCCC}
+.navbar-dark .navbar-nav .nav-link.disabled{color:#B2B2B2}
+.navbar-dark .navbar-nav .active>.nav-link{color:#fff}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {color:#fff}
+.navbar-dark .navbar-nav .nav-link.disabled:focus, .navbar-dark .navbar-nav .nav-link.disabled:hover {color:#fff}
+.navbar-dark .navbar-toggler {color: rgba#fff; border-color: rgba#fff; background-color:#0C0C0C}
+
+.dropdown-item{display:block;width:100%;padding:.25rem 1.5rem;clear:both;font-weight:400;color:#212529;text-align:inherit;white-space:nowrap;background:0 0;border:0}
+.dropdown-item:focus,.dropdown-item:hover{color:#16181b;text-decoration:none;background-color:rgba(0,0,0,.10)}
+.dropdown-item.active,.dropdown-item:active{color:#fff;text-decoration:none;background-color:#007bff}
+.dropdown-item.disabled,.dropdown-item:disabled{color:#868e96;background-color:transparent}
+.dropdown-item.active,.dropdown-item:active{color:#fff;text-decoration:none;background-color:rgba(0,0,0,.75)}
+
+.row {display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 5px;margin-left: 5px;}
+
+/*--------------------
+Video Background
+--------------------*/
+
+* { box-sizing: border-box; }.video-background {position: fixed;top: 0; right: 0; bottom: 0; left: 0;z-index: -99; }
+.video-foreground,.video-background iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;pointer-events: none;}
+#vidtop-content {top: 0;color: #fff;}
+.vid-info { position: absolute; top: 0; right: 0; width: 33%; background: rgba(0,0,0,0.3); color: #fff; padding: 1rem; font-family: Avenir, Helvetica, sans-serif; }
+.vid-info h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
+.vid-info a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); transition: .6s background; border-bottom: none; margin: 1rem auto; text-align: center; }
+@media (min-aspect-ratio: 16/9) {.video-foreground { height: 300%; top: -100%; }}
+@media (max-aspect-ratio: 16/9) {.video-foreground { width: 300%; left: -100%; }}
+@media all and (max-width: 600px) {.vid-info { width: 50%; padding: .5rem; }.vid-info h1 { margin-bottom: .2rem; }}
+@media all and (max-width: 500px) {.vid-info .acronym { display: none; }}
+
+/*--------------------
+scrollbar
+--------------------*/
+
+body::-webkit-scrollbar {width: 10px; background-color: #0C0C0C;}
+body::-webkit-scrollbar-track {border-radius: 10px; background: #0C0C0C; border: 1px solid #0C0C0C;}
+body::-webkit-scrollbar-thumb {border-radius: 10px; background: #7b2121; border: 1px solid #7b2121;}
+body::-webkit-scrollbar-thumb:hover {background: #9a2828;}
+body::-webkit-scrollbar-thumb:active {background: linear-gradient(left, #22ADD4, #1E98BA);}
+
+/*--------------------
+Hiden Items (Steam login)
+--------------------*/
+
+#div_info {text-align: center;}
+#div_button {text-align: center; width:50%; float:right;}
+
+/*--------------------
+Player Leaderboard
+--------------------*/
+
+table {
+    font-family: Consolas, monaco, monospace;
+    width: 100%;
+    color: #fff;
+    background-color: #121212;
+}
+
+.top_table:hover{
+    background-color:#121212;
+}
+.btn-primary {
+    width:100%;
+    height:100%;
+    border-radius: 0;
+    color: #fff;
+    background:#171717;
+    background-image:#171717;
+    background-color: #171717;
+    border-color: #171717;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #121212;
+    border-color: #121212;
+}
+.btn-primary:not([disabled]):not(.disabled):active {
+    color: #fff;
+    background-color: #121212;
+    border-color: #121212;
+    box-shadow: none;
+}
+
+.btn-outline-secondary {
+    color: #868e96;
+    background-color: #fff;
+    background-image: none;
+    border-color: #fff;
+    border-radius:  0 5px 5px 0;
+}
+.form-control:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(134,142,150,.5);
+}
+/*--------------------
+Pagination
+--------------------*/
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #fff;
+    background-color: #171717;
+    border: 1px solid #171717;
+}
+.page-link:hover {
+    color: #fff;
+    background-color: #121212;
+    border: 1px solid #121212;
+}
+.page-item.active .page-link {
+    background-color: #121212;
+    border-color: #121212;
+}
