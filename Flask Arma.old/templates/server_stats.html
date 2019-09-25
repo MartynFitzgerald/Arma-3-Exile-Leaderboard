@@ -1,0 +1,179 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="tablediv">
+            <table id="server_stats">
+                <tr>
+                    <th colspan="2">SERVER STATS</th>
+                </tr>
+            </table>
+
+            <table style="visibility:hidden;">
+                <tr>
+                    <th> Space</th>
+                </tr>
+                <tr>
+                    <th> Space</th>
+                </tr>
+            </table>
+
+            <table id="money_stats">
+                <tr>
+                    <th colspan="2">MONEY STATS</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="tablediv">
+            <table id="used_weapons">
+                <tr>
+                    <th colspan="2">FREQUENTLY USED WEAPONS</th>
+                </tr>
+                <tr>
+                    <td>WEAPONS</td>
+                    <td>TOTAL KILLS</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="tablediv">
+            <table id="trader_stats">
+                <tr>
+                    <th colspan="2">TRADER STATS (WEEKLY)</th>
+                </tr>
+            </table>
+
+            <table style="visibility:hidden;">
+                <tr>
+                    <th> Space</th>
+                </tr>
+                <tr>
+                    <th> Space</th>
+                </tr>
+            </table>
+
+            <table id="clan_stats">
+                <tr>
+                    <th colspan="2">CLAN STATS</th>
+                </tr>
+            </table>
+        </div>
+        <div class="tablediv">
+            <table id="top_distance">
+                <tr>
+                    <th colspan="4">LONGEST SHOTS</th>
+                </tr>
+                <tr>
+                    <td>KILLER</td>
+                    <td>VICTIM</td>
+                    <td>WEAPON</td>
+                    <td>DISTANCE</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+$.ajax({
+  type: 'GET',
+  url: '/api/server_stats/overall_stats/',
+  dataType: 'json',
+  success: function(data) {
+    var server_stats_content = '';
+    $.each(data, function(index, item){
+        server_stats_content += '<tr><td>TOTAL USERS</td><td>' + item.USERS + '</td></tr>';
+        server_stats_content += '<tr><td>TOTAL KILLS</td><td>' + item.KILLS + '</td></tr>';
+        server_stats_content += '<tr><td>TOTAL DEATHS</td><td>' + item.DEATHS + '</td></tr>';
+        server_stats_content += '<tr><td>AVG K/D</td><td>' + item.KD + '</td></tr>';
+        server_stats_content += '<tr><td>AVG KILL DISTANCE</td><td>' + item.DISTANCE + '</td></tr>';
+    });
+    $(server_stats_content).appendTo("#server_stats");
+  }
+});
+
+$.ajax({
+  type: 'GET',
+  url: '/api/server_stats/money_stats/',
+  dataType: 'json',
+  success: function(data) {
+    var money_stats_content = '';
+    $.each(data, function(index, item){
+        money_stats_content += '<tr><td>TOTAL IN PLAYERS</td><td>' + item.PLAYERS + '</td></tr>';
+        money_stats_content += '<tr><td>TOTAL IN LOCKERS</td><td>' + item.LOCKERS + '</td></tr>';
+        money_stats_content += '<tr><td>TOTAL IN CONTAINERS</td><td>' + item.CONTAINERS + '</td></tr>';
+    });
+    $(money_stats_content).appendTo("#money_stats");
+  }
+});
+
+$.ajax({
+  type: 'GET',
+  url: '/api/server_stats/used_weapons/',
+  dataType: 'json',
+  success: function(data) {
+    var used_weapons_content = '';
+    $.each(data, function(index, item){
+        used_weapons_content += '<tr><td>' + item.WEAPONS + '</td>';
+        used_weapons_content += '<td>' + item.KILLS + '</td></tr>';
+    });
+
+    $(used_weapons_content).appendTo("#used_weapons");
+  }
+});
+
+$.ajax({
+  type: 'GET',
+  url: '/api/server_stats/trader_stats/',
+  dataType: 'json',
+  success: function(data) {
+    var trader_stats_content = '';
+    $.each(data, function(index, item){
+        trader_stats_content += '<tr><td>TOTAL TRADES</td><td>' + item.TRADES + '</td></tr>';
+        trader_stats_content += '<tr><td>TOTAL MONEY SPENT</td><td>' + item.TOTAL_MONEY_SPENT + '</td></tr>';
+        trader_stats_content += '<tr><td>AVG MONEY SPENT</td><td>' + item.AVG_MONEY_SPENT + '</td></tr>';
+        trader_stats_content += '<tr><td>TOP ITEM SOLD</td><td>' + item.TOP_ITEM_SOLD + '</td></tr>';
+        trader_stats_content += '<tr><td>TOP PLAYER</td><td>' + item.TOP_PLAYER + '</td></tr>';
+    });
+    $(trader_stats_content).appendTo("#trader_stats");
+  }
+});
+
+$.ajax({
+  type: 'GET',
+  url: '/api/server_stats/clan_stats/',
+  dataType: 'json',
+  success: function(data) {
+    var clan_stats_content = '';
+    $.each(data, function(index, item){
+        clan_stats_content += '<tr><td>TOP CLAN</td><td>' + item.AVG_CLAN_MEMBERS + '</td></tr>';
+        clan_stats_content += '<tr><td>AVG CLAN MEMBERS</td><td>' + item.TOP_CLAN + '</td></tr>';
+        clan_stats_content += '<tr><td>TOTAL CLANS</td><td>' + item.TOTAL_CLANS + '</td></tr>';
+    });
+    $(clan_stats_content).appendTo("#clan_stats");
+  }
+});
+
+$.ajax({
+  type: 'GET',
+  url: '/api/server_stats/top_distance/',
+  dataType: 'json',
+  success: function(data) {
+    var top_distance_content = '';
+    $.each(data, function(index, item){
+        top_distance_content += '<tr><td>' + item.KILLER + '</td>';
+        top_distance_content += '<td>' + item.VICTIM + '</td>';
+        top_distance_content += '<td>' + item.WEAPON + '</td>';
+        top_distance_content += '<td>' + item.DISTANCE + '</td></tr>';
+    });
+    $(top_distance_content).appendTo("#top_distance");
+  }
+});
+</script>
+
+
+{% endblock %}
